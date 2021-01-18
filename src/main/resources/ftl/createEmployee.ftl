@@ -1,5 +1,6 @@
+<#assign testData = dataForFTL?eval>
 {
-  "name": "${createEmployee.name}",
-  "salary": "${createEmployee.salary}",
-  "age": "${createEmployee.age}"
+  "name": "${testData.name}",
+  "salary": "${testData.salary}",
+  "age": "${testData.age}"
 }
