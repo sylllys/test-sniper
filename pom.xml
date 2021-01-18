@@ -179,24 +179,6 @@
           </plugin>
 
           <plugin>
-            <groupId>org.jsonschema2pojo</groupId>
-            <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-            <version>1.0.2</version>
-            <configuration>
-              <sourceDirectory>${basedir}/schemas</sourceDirectory>
-              <targetPackage>sylllys.test.sniper.pojo</targetPackage>
-              <sourceType>json</sourceType>
-            </configuration>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
