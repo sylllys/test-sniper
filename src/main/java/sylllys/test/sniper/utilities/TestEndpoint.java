@@ -58,33 +58,23 @@ public class TestEndpoint {
 
   public void sendRequest(HttpMethods method) throws Exception {
 
-    int retry = 0;
-    do {
-      switch (method) {
-        case GET:
-          response = request.get(endPointURL);
-          break;
-        case PUT:
-          response = request.put(endPointURL);
-          break;
-        case POST:
-          response = request.post(endPointURL);
-          break;
-        case DELETE:
-          response = request.delete(endPointURL);
-          break;
-        case PATCH:
-          response = request.patch(endPointURL);
-          break;
-      }
-      if (response.getStatusCode() == 500 && retry < 5) {
-        Thread.sleep(1000 * 10);
-        retry++;
-        System.out.println("Retrying request " + retry);
-      } else {
+    switch (method) {
+      case GET:
+        response = request.get(endPointURL);
         break;
-      }
-    } while (true);
+      case PUT:
+        response = request.put(endPointURL);
+        break;
+      case POST:
+        response = request.post(endPointURL);
+        break;
+      case DELETE:
+        response = request.delete(endPointURL);
+        break;
+      case PATCH:
+        response = request.patch(endPointURL);
+        break;
+    }
   }
 
 }
