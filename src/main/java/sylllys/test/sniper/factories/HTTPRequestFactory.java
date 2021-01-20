@@ -56,17 +56,20 @@ public class HTTPRequestFactory {
 
   }
 
-  public void loadRequestHeadersAndParams(Map<String, String> headersAndParams) {
+  public void loadRequestHeadersParamsUrl(Map<String, String> dataForHeadersParamsUrl) {
 
     requestHeaders = new HashMap<String, String>();
     requestParameters = new HashMap<String, String>();
 
-    for (String key : headersAndParams.keySet()) {
+    for (String key : dataForHeadersParamsUrl.keySet()) {
 
-      if (key.toLowerCase().startsWith("sniper-header:")) {
-        requestHeaders.put(key.substring(14), headersAndParams.get(key));
-      } else if (key.toLowerCase().startsWith("sniper-parameter:")) {
-        requestParameters.put(key.substring(17), headersAndParams.get(key));
+      if (key.toLowerCase().startsWith("sniper_header_")) {
+        requestHeaders.put(key.substring(14), dataForHeadersParamsUrl.get(key));
+      } else if (key.toLowerCase().startsWith("sniper_parameter_")) {
+        requestParameters.put(key.substring(17), dataForHeadersParamsUrl.get(key));
+      } else if (key.toLowerCase().startsWith("sniper_url_")) {
+        bullet.setUrl(bullet.getUrl()
+            .replace("{{" + key.substring(11) + "}}", dataForHeadersParamsUrl.get(key)));
       }
 
     }

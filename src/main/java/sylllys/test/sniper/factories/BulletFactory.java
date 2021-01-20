@@ -2,8 +2,6 @@ package sylllys.test.sniper.factories;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import io.restassured.http.Header;
-import io.restassured.response.Response;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -37,11 +35,11 @@ public class BulletFactory {
 
   public void fire(Bullet bullet,
       Optional<String> requestBody,
-      Map<String, String> headersAndParams, HttpServletResponse finalResponse) throws Exception {
+      Map<String, String> dataForHeadersParamsUrl, HttpServletResponse finalResponse) throws Exception {
 
     httpRequestFactory.setBulletDetails(bullet);
     httpRequestFactory.loadRequestBody(requestBody);
-    httpRequestFactory.loadRequestHeadersAndParams(headersAndParams);
+    httpRequestFactory.loadRequestHeadersParamsUrl(dataForHeadersParamsUrl);
     httpRequestFactory.sendRequest();
     httpRequestFactory.setServletResponseDetails(finalResponse);
   }
