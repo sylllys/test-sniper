@@ -1,4 +1,3 @@
-name: createEmployee
 ftl: createEmployee.ftl
 url: http://dummy.restapiexample.com/api/v1/create
 method: POST
